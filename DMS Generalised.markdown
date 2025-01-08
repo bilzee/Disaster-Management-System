@@ -1,12 +1,12 @@
-```mermaid 
+```mermaid
 erDiagram
     Incident {
-        string IncidentID
-        string IncidentTypeID
+        string IncidentID "PK"
+        string IncidentTypeID "LU"
         string IncidentSeverity
         datetime IncidentDate
         string IncidentName
-        string AffectedEntityID
+        string AffectedEntityID "FK"
     }
 
     Lookup_IncidentType {
@@ -15,14 +15,14 @@ erDiagram
     }
 
     AffectedEntity {
-        string AffectedEntityID
-        string AffectedEntityTypeID
+        string AffectedEntityID "PK"
+        string AffectedEntityTypeID "LU"
         string AffectedEntityName
         decimal Longitude
         decimal Latitude
-        string IncidentID
-        string RapidAssessment
-        string RapidResponse
+        string IncidentID "FK"
+        string RapidAssessment "FK"
+        string RapidResponse "FK"
     }
 
     Lookup_AffectedEntityType {
@@ -31,34 +31,34 @@ erDiagram
     }
 
     Camp {
-        string CampID
+        string CampID "PK"
         string CampName
         string CampStatus
         int PopChildren
         int PopMen
         int PopWomen
-        string AffectedEntityID
+        string AffectedEntityID "FK"
     }
 
     Infrastructure {
-        string InfrastructureID
+        string InfrastructureID "PK"
         string InfrastructureName
         string InfrastructureStatus
-        string AffectedEntityID
+        string AffectedEntityID "FK"
     }
 
     Land {
-        string LandID
+        string LandID "PK"
         string LandName
         string LandStatus
-        string AffectedEntityID
+        string AffectedEntityID "FK"
     }
 
     RapidAssessment {
-        string RapidAssessmentID
-        string RapidAssessmentTypeID
+        string RapidAssessmentID "PK"
+        string RapidAssessmentTypeID "LU"
         datetime RapidAssessmentDate
-        string AffectedEntityID
+        string AffectedEntityID "FK"
     }
 
     Lookup_RapidAssessmentType {
@@ -67,47 +67,47 @@ erDiagram
     }
 
     HealthAssessment {
-        string HealthAssessmentID
+        string HealthAssessmentID "PK"
         json HealthAssessmentDataPoints
-        string RapidAssessmentID
+        string RapidAssessmentID "FK"
     }
 
     EducationAssessment {
-        string EducationAssessmentID
+        string EducationAssessmentID "PK"
         json EducationAssessmentDataPoints
-        string RapidAssessmentID
+        string RapidAssessmentID "FK"
     }
 
     SecurityAssessment {
-        string SecurityAssessmentID
+        string SecurityAssessmentID "PK"
         json SecurityAssessmentDataPoints
-        string RapidAssessmentID
+        string RapidAssessmentID "FK"
     }
 
     InfrastructureAssessment {
-        string InfrastructureAssessmentID
+        string InfrastructureAssessmentID "PK"
         json InfrastructureAssessmentDataPoints
-        string RapidAssessmentID
+        string RapidAssessmentID "FK"
     }
 
     LandAssessment {
-        string LandAssessmentID
+        string LandAssessmentID "PK"
         json LandAssessmentDataPoints
-        string RapidAssessmentID
+        string RapidAssessmentID "FK"
     }
 
     OtherAssessment {
-        string OtherAssessmentID
+        string OtherAssessmentID "PK"
         json OtherAssessmentDataPoints
-        string RapidAssessmentID
+        string RapidAssessmentID "FK"
     }
 
     RapidResponse {
-        string RapidResponseID
-        string RapidAssessmentTypeID
+        string RapidResponseID "PK"
+        string RapidAssessmentTypeID "LU"
         datetime RapidResponseDate
-        string AffectedEntityID
-        string RapidAssessmentID
+        string AffectedEntityID "FK"
+        string RapidAssessmentID "FK"
     }
 
     Lookup_RapidResponseType {
@@ -116,39 +116,39 @@ erDiagram
     }
 
     HealthResponse {
-        string HealthResponseID
+        string HealthResponseID "PK"
         json HealthResponseDataPoints
-        string RapidResponseID
+        string RapidResponseID "FK"
     }
 
     EducationResponse {
-        string EducationResponseID
+        string EducationResponseID "PK"
         json EducationResponseDataPoints
-        string RapidResponseID
+        string RapidResponseID "FK"
     }
 
     SecurityResponse {
-        string SecurityResponseID
+        string SecurityResponseID "PK"
         json SecurityResponseDataPoints
-        string RapidResponseID
+        string RapidResponseID "FK"
     }
 
     InfrastructureResponse {
-        string InfrastructureResponseID
+        string InfrastructureResponseID "PK"
         json InfrastructureResponseDataPoints
-        string RapidResponseID
+        string RapidResponseID "FK"
     }
 
     LandResponse {
-        string LandResponseID
+        string LandResponseID "PK"
         json LandResponseDataPoints
-        string RapidResponseID
+        string RapidResponseID "FK"
     }
 
     OtherResponse {
-        string OtherResponseID
+        string OtherResponseID "PK"
         json OtherResponseDataPoints
-        string RapidResponseID
+        string RapidResponseID "FK"
     }
 
     Incident }|--|| Lookup_IncidentType : "*:1"
