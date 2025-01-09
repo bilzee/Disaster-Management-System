@@ -32,9 +32,9 @@ erDiagram
     }
 
 
-    Incident }|--|{ AffectedEntity : "*:*"
-    AffectedEntity ||--|{ RapidAssessment : "1:*"
-    AffectedEntity ||--|{ RapidResponse : "1:*"
-    RapidAssessment ||--|{ RapidResponse : "1:*"
+    Incident }|--|{ AffectedEntity : "Many-to-Many"
+    AffectedEntity ||--|{ RapidAssessment : "One-to-Many"
+    AffectedEntity ||--|{ RapidResponse : "One-to-Many"
+    RapidAssessment ||--|{ RapidResponse : "One-to-Many"
 
 ```
