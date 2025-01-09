@@ -67,12 +67,12 @@ erDiagram
         string State
     }
 
-    Incident_impact ||--|{ Camp : "1:*"
-    Incident_impact ||--|{ Infrastructure : "1:*"
-    Incident_impact ||--|{ WASH : "1:*"
-    Incident_impact ||--|{ Health : "1:*"
-    Camp }|--|| Health : "*:1"
-    Camp }|--|| WASH : "*:1"
-    Health ||--|{ WASH : "1:*"
+    Incident_impact ||--|{ Camp : "One-to-Many"
+    Incident_impact ||--|{ Infrastructure : "One-to-Many"
+    Incident_impact ||--|{ WASH : "One-to-Many"
+    Incident_impact ||--|{ Health : "One-to-Many"
+    Camp }|--|| Health : "Many-to-One"
+    Camp }|--|| WASH : "Many-to-One"
+    Health ||--|{ WASH : "One-to-Many"
 
 ```
