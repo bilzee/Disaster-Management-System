@@ -32,7 +32,7 @@ erDiagram
     }
 
     Incident ||--|{ RapidAssessment : "One-to-Many"
-    RapidAssessment ||--|| AffectedEntity : "One-to-One"
+    RapidAssessment }|--|| AffectedEntity : "Many-to-One"
     AffectedEntity ||--|{ RapidResponse : "One-to-Many"
     RapidAssessment ||--|{ RapidResponse : "One-to-Many"
 ```
