@@ -5,6 +5,13 @@ erDiagram
         string IncidentSeverity
         datetime IncidentDate
         string IncidentName
+        string RapidAssessmentID "FK"
+    }
+
+    RapidAssessment {
+        string RapidAssessmentID "PK"
+        datetime RapidAssessmentDate
+        string IncidentID "FK"
         string AffectedEntityID "FK"
     }
 
@@ -13,15 +20,8 @@ erDiagram
         string AffectedEntityName
         decimal Longitude
         decimal Latitude
-        string IncidentID "FK"
         string RapidAssessment "FK"
         string RapidResponse "FK"
-    }
-
-    RapidAssessment {
-        string RapidAssessmentID "PK"
-        datetime RapidAssessmentDate
-        string AffectedEntityID "FK"
     }
 
     RapidResponse {
@@ -31,10 +31,8 @@ erDiagram
         string RapidAssessmentID "FK"
     }
 
-
-    Incident }|--|{ AffectedEntity : "Many-to-Many"
-    AffectedEntity ||--|{ RapidAssessment : "One-to-Many"
+    Incident ||--|{ RapidAssessment : "One-to-Many"
+    RapidAssessment ||--|| AffectedEntity : "One-to-One"
     AffectedEntity ||--|{ RapidResponse : "One-to-Many"
     RapidAssessment ||--|{ RapidResponse : "One-to-Many"
-
 ```
