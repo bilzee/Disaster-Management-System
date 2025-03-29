@@ -152,15 +152,10 @@ erDiagram
     }
 
     Incident }|--|| Lookup_IncidentType : "Many-to-One"
-    Incident }|--|{ AffectedEntity : "Many-to-Many"
-    AffectedEntity ||--|{ RapidAssessment : "One-to-Many"
+    Incident ||--|{ RapidAssessment : "One-to-Many"
+    RapidAssessment }|--|| AffectedEntity : "Many-to-One"
     AffectedEntity ||--|{ RapidResponse : "One-to-Many"
     RapidAssessment ||--|{ RapidResponse : "One-to-Many"
-
-    AffectedEntity }|--|| Lookup_AffectedEntityType : "Many-to-One"
-    AffectedEntity }|--|| Camp : "Many-to-One"
-    AffectedEntity }|--|| Infrastructure : "Many-to-One"
-    AffectedEntity }|--|| Land : "Many-to-One"
 
     RapidAssessment }|--|| Lookup_RapidAssessmentType : "Many-to-One"
     RapidAssessment }|--|| HealthAssessment : "Many-to-One"
@@ -169,6 +164,11 @@ erDiagram
     RapidAssessment }|--|| InfrastructureAssessment : "Many-to-One"
     RapidAssessment }|--|| LandAssessment : "Many-to-One"
     RapidAssessment }|--|| OtherAssessment : "Many-to-One"
+
+    AffectedEntity }|--|| Lookup_AffectedEntityType : "Many-to-One"
+    AffectedEntity }|--|| Camp : "Many-to-One"
+    AffectedEntity }|--|| Infrastructure : "Many-to-One"
+    AffectedEntity }|--|| Land : "Many-to-One"
 
     RapidResponse }|--|| Lookup_RapidResponseType : "Many-to-One"
     RapidResponse }|--|| HealthResponse : "Many-to-One"
